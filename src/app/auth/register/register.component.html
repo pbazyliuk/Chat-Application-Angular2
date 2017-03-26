@@ -1,0 +1,167 @@
+<div class="form__wrapper">
+
+    <form action="" class="form-sign-up" 
+    [formGroup]="signUpForm"
+    novalidate
+    (ngSubmit)="save()"
+    >
+                    
+                    <h3 class="form-sign-up__header">Sign Up</h3>
+                  
+                        <div class="form-sign-up__container">
+                            <div class="form-sign-up__container--narrow">
+                                <label for="firstnameId" class="form-sign-in__label"
+                                [class.header-has-error]="signUpForm.get('firstname').invalid && signUpForm.get('firstname').touched"
+                                >Firstname</label>
+                                <input id="firstnameId"class="form-sign-up__input-field" type="text" placeholder="First Name (required)"
+                                formControlName="firstname"
+                                [class.input-has-error]="signUpForm.get('firstname').invalid && signUpForm.get('firstname').touched"
+                                >                              
+                                
+                                <span 
+                                *ngIf="signUpForm.get('firstname').invalid && signUpForm.get('firstname').touched"
+                                [class.text-has-error]="(signUpForm.get('firstname').dirty || signUpForm.get('firstname').touched) && signUpForm.get('firstname').errors"
+                                >
+                                <span *ngIf="signUpForm.get('firstname').errors.required">Firstname is required</span>
+                                    <span *ngIf="!!signUpForm.get('firstname').errors.minlength">Minimum 3 characters</span>
+                                   <!--<span *ngIf="signUpForm.get('firstName').errors.required">
+                                        Please enter your first name.
+                                    </span>-->
+                                    
+                                    <!--<span *ngIf="signUpForm.get('firstName').errors?.minlength">
+                                        The first name must be longer than 3 characters.
+                                    </span>-->
+                                </span>
+                            </div>
+                            
+                            <div class="form-sign-up__container--narrow">
+                                <label for="lastnameId" class="form-sign-in__label"
+                                [class.header-has-error]="signUpForm.get('lastname').invalid && signUpForm.get('lastname').touched"
+                                >Lastname</label>
+                                <input id="lastnameId" class="form-sign-up__input-field" type="text" placeholder="Last Name (required)"
+                                formControlName="lastname"
+                                 [class.input-has-error]="signUpForm.get('lastname').invalid && signUpForm.get('lastname').touched">
+                                <span 
+                                *ngIf="(signUpForm.get('lastname').dirty || signUpForm.get('lastname').touched) && signUpForm.get('lastname').errors"
+                                [class.text-has-error]="signUpForm.get('lastname').invalid && signUpForm.get('lastname').touched"
+                                >
+                                    <span *ngIf="signUpForm.get('lastname').errors.required">Lastname is required</span>
+                                    <span *ngIf="!!signUpForm.get('lastname').errors.minlength">Minimum 3 characters</span>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                    
+                     <div class="form-sign-up__container">
+                        <label for="emailId" class="form-sign-in__label"
+                        [class.header-has-error]="signUpForm.get('email').invalid && signUpForm.get('email').touched"
+                        >Email</label>
+                        <input id="emailId" class="form-sign-up__input-field" type="text" placeholder="Email Address (required)"
+                        formControlName="email"
+                         [class.input-has-error]="signUpForm.get('email').invalid && signUpForm.get('email').touched"
+                        >
+                        <span 
+                        *ngIf="signUpForm.get('email').invalid && signUpForm.get('email').touched"
+                        [class.text-has-error]="signUpForm.get('email').invalid && signUpForm.get('email').touched"
+                        >
+                            Email is required and should be valid
+                        </span>
+                     </div>
+
+                    <div formGroupName="passwords"
+                    >
+                        <div class="form-sign-up__container">
+                            <label for="passwordId" class="form-sign-in__label"
+                            [class.header-has-error]="
+                            (signUpForm.get('passwords.password').dirty || signUpForm.get('passwords.password').touched) && 
+                            signUpForm.get('passwords.password').errors"
+                            >Password</label>
+                            <input id="passwordId" class="form-sign-up__input-field" type="password" placeholder="Password (required)"
+                            formControlName="password"
+                            [class.input-has-error]="
+                            (signUpForm.get('passwords.password').dirty || signUpForm.get('passwords.password').touched) && 
+                            (signUpForm.get('passwords.password').errors || signUpForm.get('passwords').errors) && !signUpForm.get('passwords.confirmpassword').errors?.required"
+                            >
+                            <span
+                            *ngIf="
+                            (signUpForm.get('passwords.password').dirty || signUpForm.get('passwords.password').touched) && 
+                            signUpForm.get('passwords.password').errors"
+                            [class.text-has-error]="
+                            (signUpForm.get('passwords.password').dirty || signUpForm.get('passwords.password').touched) && 
+                            signUpForm.get('passwords.password').errors
+                            "
+                            >   
+                                <span *ngIf="signUpForm.get('passwords.password').errors.required">Password is required</span>
+                                <span *ngIf="!!signUpForm.get('passwords.password').errors.minlength || !!signUpForm.get('passwords.password').errors.maxlength">Password should contain from 6 to 14 characters</span>
+                            </span>
+                        </div>
+
+                        <div class="form-sign-up__container">
+                            <label for="confirmpasswordId" class="form-sign-in__label"
+                            [class.header-has-error]="
+                            (signUpForm.get('passwords.confirmpassword').dirty || signUpForm.get('passwords.confirmpassword').touched) && 
+                            signUpForm.get('passwords.confirmpassword').errors
+                            "
+                            >Confirm Password</label>
+                            <input id="confirmpasswordId" class="form-sign-up__input-field" type="password" placeholder="Confirm Password (required)"
+                            formControlName="confirmpassword"
+                             [class.input-has-error]="
+                             (signUpForm.get('passwords.confirmpassword').dirty || signUpForm.get('passwords.confirmpassword').touched) && 
+                            signUpForm.get('passwords').errors
+                             "
+                            >
+                            
+                            <span *ngIf="
+                            (signUpForm.get('passwords.confirmpassword').dirty || signUpForm.get('passwords.confirmpassword').touched) && 
+                            (signUpForm.get('passwords.confirmpassword').invalid || signUpForm.get('passwords').errors)"
+                             [class.text-has-error]="
+                              (signUpForm.get('passwords.confirmpassword').dirty || signUpForm.get('passwords.confirmpassword').touched) && 
+                            (signUpForm.get('passwords.confirmpassword').invalid || signUpForm.get('passwords').errors)
+                            "
+                            >   
+                                <span *ngIf="signUpForm.get('passwords.confirmpassword').errors?.required">Confirm password is required</span>
+                                <!--<span *ngIf="!!signUpForm.get('passwords.confirmpassword').errors?.minlength || !!signUpForm.get('passwords.confirmpassword').errors?.maxlength">Confirm Password should contain from 6 to 14 characters</span>-->
+                                <span *ngIf="(signUpForm.get('passwords').errors?.match)">Password doesn't match</span>
+                            </span>
+                        </div>
+</div>
+                 <button class="form-sign-up__btn-register" type="submit" [disabled]="signUpForm.invalid" >Get Started</button>
+                 <!--{{ signUpForm.valid }}
+                 <br>
+                 {{ signUpForm.dirty }}
+                 <br>
+                 {{ signUpForm.touched }}
+                 <br>-->
+                 <!--"firstname.valid: ==" {{signUpForm.get('firstname').valid}}
+                 <br>
+                 "firstname.invalid: ==" {{signUpForm.controls.firstname.invalid}}
+                 <br>
+                 "firstname.invalid get: ==" {{signUpForm.get('firstname').invalid}}
+                 <br>
+                 "fistname errors: ==" {{signUpForm.get('firstname').errors | json}}
+                 <br>
+                 "fistname errors: required ==" {{signUpForm.get('firstname').errors?.required}}
+
+                 <br>
+                 "fistname errors: minlength ==" {{signUpForm.get('firstname').errors?.minlength}}
+
+                 <br>
+                 "email.invalid: ==" {{signUpForm.controls.email.invalid}}
+
+                 <br>
+                 "email.invalid get: ==" {{signUpForm.get('email').invalid}}
+                 <br>
+                 {{signUpForm.value | json}}
+
+                 <br>
+                 {{   signUpForm.get('passwords').errors | json }}-->
+<!--                
+                 form values: {{signUpForm.value | json}}
+                  <br>
+                 passwords password: {{signUpForm.get('passwords.password').errors | json}}
+                 <br>   
+                 passwords.confirmpassword: {{signUpForm.get('passwords.confirmpassword').errors | json}}
+                 <br>
+                 passwords: {{signUpForm.get('passwords').errors | json}}-->
+                </form>
+</div>

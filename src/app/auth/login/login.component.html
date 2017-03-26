@@ -1,0 +1,56 @@
+<div class="form__wrapper">
+
+    <form #formSignIn="ngForm" novalidate class="form-sign-in" (ngSubmit)="signInSubmit(formSignIn.value)">
+        
+        <h4 class="form-sign-in__header" >Sign In</h4>
+        
+        <div class="form-sign-in__container">
+            <label class="form-sign-in__label" for="emailId"
+            [class.header-has-error]="email.invalid && email.touched"
+            >Email</label>
+            <input class="form-sign-in__input-field" id="emailId" type="text" name="email" placeholder="Email Address (required)" 
+            #email="ngModel"
+            required
+            pattern="[^@]+@[^@]+\.[a-zA-Z]{2,}" 
+            [class.input-has-error]="email.invalid && email.touched"
+            [ngModel]="user.email"
+            >
+            <div *ngIf="email.invalid && email.touched"  class="text-has-error">
+                Email is required
+            </div>
+        </div>
+
+        <div class="form-sign-in__container">
+            <label class="form-sign-in__label" for="passwordId"
+            [class.header-has-error]="password.invalid && password.touched"
+            >Password</label>
+            <input class="form-sign-in__input-field" id="passwordId" type="password" name="password" placeholder="Password (required)"
+            #password="ngModel"
+            required
+            pattern=".{6,}"
+            [ngModel]="user.password"
+            [class.input-has-error]="password.invalid && password.touched"
+            >
+            <div *ngIf="password.invalid && password.touched"  class="text-has-error">
+                Password is required (min 6 characters)
+            </div>
+        </div>
+        <button class="form-sign-in__btn-login" type="submit" [disabled]="formSignIn.invalid">Login</button>
+    </form>
+    <div class="social-icons-content">
+                    
+                    <a class="social-icons-content__link" href="https://www.facebook.com">
+                        <div class="social-icons-content__fb-icon"></div>
+                    </a>
+                    <a class="social-icons-content__link" href="https://plus.google.com/">
+                        <div class="hover social-icons-content__g-icon"></div>
+                    </a>
+                    <a class="social-icons-content__link" href="https://twitter.com/">
+                        <div class="hover social-icons-content__tw-icon"></div>
+                    </a>
+                
+                </div>          <!--end social-icons-content-->
+
+
+    
+</div>
