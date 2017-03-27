@@ -14,10 +14,31 @@ import { Chat } from './shared/chat.model';
 })
 
 export class ChatsComponent implements OnInit {
-
+  public isCollapsed: boolean;
+  public isMenuShown: boolean;
   chats: Promise <Chat[]>
 
+  // isCollapsedChild:boolean = true;
+  // isCollapsedParent:boolean;
+  
   constructor(private chatService: ChatService) {
+
+  }
+
+  onNotifyCollapse(message:boolean):void {
+    // alert(message);
+    this.isCollapsed = message;
+    // this.isCollapsedParent = this.isCollapsed;
+    // console.log(this.isCollapsed);
+
+  }
+
+  onNotifyMenu(message:boolean):void {
+    // alert(message);
+    this.isMenuShown = message;
+    
+    // this.isCollapsedParent = this.isCollapsed;
+    console.log("isMenuShown");
 
   }
 

@@ -4,7 +4,12 @@ body {
     margin: 0;
     padding: 0;
     background: grey;
+    /*height: 100%;*/
     font-family: 'Open Sans', Arial, 'sans-serif'; 
     /*300 14px/20px 'open sans'*/
     font-size: 14px;
+}
+
+input:focus, [contenteditable="true"] {
+    outline: none;
 }

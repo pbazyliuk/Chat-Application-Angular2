@@ -2,7 +2,7 @@
     background-color: #3b3e99;
     padding: 0 75px;
     height: 60px;
-    margin-bottom: 5px;
+    /*margin-bottom: 5px;*/
 }
 
 .navbar__logo-container {
@@ -14,11 +14,13 @@
     list-style: none;
     padding: 0;
     margin: 0;
+  
     line-height: 60px;
 }
 
 .navbar__menu-item {
     display: inline-block;
+    
 }
 
 .navbar__menu-link {

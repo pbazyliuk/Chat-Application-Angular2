@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 //Components
 import { ChatsComponent } from './chats.component';
-import { ChatDetailComponent } from './chat-details';
+import { ChatDetailsComponent } from './chat-details';
 import { ChatHolderComponent } from './chat-holder';
 import { ChatNewComponent } from './chat-new';
 
@@ -23,7 +23,7 @@ const chatRoutes: Routes = [
       },
       {
         path: ':id',
-        component: ChatDetailComponent
+        component: ChatDetailsComponent
       }
     ]
   }

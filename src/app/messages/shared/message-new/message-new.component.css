@@ -1,0 +1,22 @@
+.message-input {
+    background-color: lightgrey;
+    border-radius: 15px;
+    box-sizing: border-box;
+    margin: 24px auto 30px;
+    margin-bottom: 32px;
+    min-height: 32px;
+    padding: 7px 16px;
+    position: relative;
+    width: 343px;
+}
+
+.message-input:after {
+    background-color: none;
+    color: grey;
+    content: "\f118";
+    cursor: pointer;
+    font-family: FontAwesome;
+    font-size: 16px;
+    position: absolute;
+    right: 16px;
+}

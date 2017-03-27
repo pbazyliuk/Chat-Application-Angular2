@@ -1,8 +1,23 @@
-<h3> Chat List </h3>
+<!--<h3> Chat List </h3>-->
+<ul class="chat-list">
+  <li class="chat-list__item" *ngFor='let chat of chats | async; let i = index' 
+  (click)="select({id: chat.id})"
+  [class.activeLink]="(selectedId - 1) === i"
+  >
+    <div class="avatar" >
+        <img class="avatar__img" src="http://placehold.it/60x60" alt="avatar-image">
+    </div>
 
-<ul>
-  <li *ngFor='let chat of chats | async' (click)="select({id: chat.id})">
-    {{chat.name}}
+    <div class="chat-info" >
+        <h4 class="chat-name__heading">{{chat.name}}</h4>
+        <!--<p class="user-info__text">Aldus Pagemaker including vers of Lorem ipsum</p>-->
+    </div>
+
+    <div class="chat-last-activity"  >
+        2 h
+    </div>
+    
+   
   </li>
-
+  <!--isCollapsedChild: {{isCollapsedChild}}-->
 </ul>

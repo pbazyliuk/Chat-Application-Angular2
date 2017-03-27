@@ -10,6 +10,9 @@ import { Chat } from '../shared/chat.model';
 
 export class ChatListComponent implements OnInit {
   @Input() chats: Promise<Chat[]>
+
+  @Input() isCollapsedChild:boolean;
+
   selectedId: number;
 
   constructor(private route: ActivatedRoute,

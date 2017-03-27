@@ -1,12 +1,22 @@
-<h3>MESSAGES LIST</h3>
+<!--<h3>MESSAGES LIST</h3>-->
 
 
-<ul >
-    <li *ngFor='let message of messages | async'>
-        
-        {{message.text}}
-        <b>Sent at:</b>
-    <span>{{message.sentAt | date: 'medium' }}</span>
+<ul class="message-list">
+    <li class="user-message" *ngFor='let message of messages | async'>
+        <div class="user-message-wrapper">
+      
+            <div class="avatar ">
+                <img class="avatar__img" src="http://placehold.it/60x60" alt="">
+            </div>
+            <div class="user-message__text">
+                {{message.text}}
+            </div>
+              
+        </div>
+
+        <div class="user-message__publication-date">
+            {{message.sentAt | date: 'shortTime' }}
+        </div>
     </li>
 </ul>
 

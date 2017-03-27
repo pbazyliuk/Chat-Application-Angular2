@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ct-chat-detail',
+  selector: 'ct-chat-details',
   styleUrls: ['./chat-details.component.css'],
   templateUrl: './chat-details.component.html'
 })
 
-export class ChatDetailComponent implements OnInit {
+export class ChatDetailsComponent implements OnInit {
 
   constructor() {
 

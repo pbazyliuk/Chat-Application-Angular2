@@ -1,6 +1,19 @@
-<h1> Chats Page </h1>
-<ct-chat-navbar></ct-chat-navbar>
-<ct-chat-list [chats]='chats'></ct-chat-list>
+<!--<h1> Chats Page </h1>-->
 
-<router-outlet></router-outlet>
+<div class="wrapper">
+    <aside class="aside-part" [class.collapseWidth]="isCollapsed">
+        <ct-chat-navbar (notifyCollapse)='onNotifyCollapse($event)' (notifyMenu)='onNotifyMenu($event)'></ct-chat-navbar>
+        <ct-chat-list [isCollapsedChild]='isCollapsed' [chats]='chats' [hidden]='isMenuShown'></ct-chat-list>
+    <!--isCollapsed: {{isCollapsed}}
+    isMenuShown: {{isMenuShown}}-->
+        <ct-chat-menu *ngIf="isMenuShown"></ct-chat-menu>
+    </aside>
+    <div class="main-part" [class.expandWidth]="isCollapsed">
+    <router-outlet>
+        
+        
+    </router-outlet>
+    </div>
+</div>
+
 

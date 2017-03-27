@@ -1,0 +1,65 @@
+
+.message-list {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0 24px;
+    margin-bottom: 18px;
+    list-style: none;
+}
+
+.user-message {
+    width: 45%;
+    margin-bottom: 24px;
+}
+
+.user-message:nth-child(odd) {
+    align-self: flex-start;
+}
+
+.user-message:nth-child(even) {
+    align-self: flex-end;
+}
+
+.user-message-wrapper {
+    display: flex;
+    flex-direction: row;
+    min-height: 60px;
+    align-items: flex-end;
+}
+
+.avatar__img {
+    border-radius: 50%;
+    margin-right: 24px;
+}
+
+
+.user-message__text {
+    background: grey;
+    padding: 20px 24px;
+    min-height: 60px;
+    flex-grow: 1;
+    text-align: center;
+    border-radius: 10px;
+    box-sizing: border-box;
+    
+}
+
+.user-message:nth-child(even) .user-message__text {
+    order: -1;
+    background: lightgrey;
+}
+
+.user-message:nth-child(even) .avatar__img {
+    margin-right: 0;
+    margin-left: 24px;
+}
+
+.user-message__publication-date {
+    margin-top: 10px;
+    text-align: right;
+}
+
+.user-message:nth-child(even) .user-message__publication-date {
+    text-align: left;
+}

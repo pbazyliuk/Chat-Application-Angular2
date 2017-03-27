@@ -16,4 +16,47 @@ export const CHATS: Chat[] = [
     creator: 3,
     createdAt: moment().subtract(10, 'minutes').toDate()
   }
+  // ,
+  // {
+  //   id: 3,
+  //   name: 'Chatting here',
+  //   attendees: [1, 2],
+  //   creator: 1,
+  //   createdAt: moment().subtract(50, 'minutes').toDate(),
+  // },
+  // {
+  //   id: 4,
+  //   name: 'Cool chat',
+  //   attendees: [3, 4],
+  //   creator: 3,
+  //   createdAt: moment().subtract(10, 'minutes').toDate()
+  // },
+  // {
+  //   id: 5,
+  //   name: 'Chatting here',
+  //   attendees: [1, 2],
+  //   creator: 1,
+  //   createdAt: moment().subtract(50, 'minutes').toDate(),
+  // },
+  // {
+  //   id: 6,
+  //   name: 'Cool chat',
+  //   attendees: [3, 4],
+  //   creator: 3,
+  //   createdAt: moment().subtract(10, 'minutes').toDate()
+  // },
+  // {
+  //   id: 7,
+  //   name: 'Chatting here',
+  //   attendees: [1, 2],
+  //   creator: 1,
+  //   createdAt: moment().subtract(50, 'minutes').toDate(),
+  // },
+  // {
+  //   id: 8,
+  //   name: 'Cool chat',
+  //   attendees: [3, 4],
+  //   creator: 3,
+  //   createdAt: moment().subtract(10, 'minutes').toDate()
+  // }
 ];

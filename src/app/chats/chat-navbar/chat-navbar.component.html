@@ -1,1 +1,17 @@
-<div>Chat Navbar</div>
+<div class="chat-navbar" [class.centered]="isCollapsed">
+    <span class="chat-navbar__btn-left-arrow" 
+    [class.rotated]="isCollapsed"
+    [class.disabled]="isMenuShown"
+  (click)='collapse()'></span>
+
+  
+        <form action="" class="search-form" *ngIf="!isCollapsed">
+             <input class="search-form__input" type="text" placeholder="Search">
+            <span class="search-form__btn-search"></span>
+        </form>
+
+    <span *ngIf="!isCollapsed" class="chat-navbar__btn-bars"
+    (click)='showMenu()'></span>
+</div>
+
+    <!--isCollapsed: {{isCollapsed}}-->
