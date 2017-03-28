@@ -1,6 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Chat } from '../shared/chat.model';
+import { ChatService } from '../shared/chats.service';
+  import { Subscription } from "rxjs";
 
 @Component({
   selector: 'ct-chat-list',
@@ -10,18 +12,24 @@ import { Chat } from '../shared/chat.model';
 
 export class ChatListComponent implements OnInit {
   @Input() chats: Promise<Chat[]>
-
   @Input() isCollapsedChild:boolean;
+  private selectedId: number;
+  private searchValue: string = '';
+  private subscription: Subscription;
 
-  selectedId: number;
 
-  constructor(private route: ActivatedRoute,
-              private router: Router) {
+
+  constructor(
+      private route: ActivatedRoute,
+      private router: Router,
+      private service: ChatService) {
 
   }
 
-  ngOnInit() {
-
+  ngOnInit(): void {
+     this.subscription = this.service
+      .getSearchValue()
+      .subscribe(value => this.searchValue = value)
   }
 
   select(chat: Chat) {
@@ -29,6 +37,11 @@ export class ChatListComponent implements OnInit {
 
     // Navigate with relative link
     this.router.navigate(['chat', chat.id])
+    this.searchValue = '';
+  }
+
+  public ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
 }

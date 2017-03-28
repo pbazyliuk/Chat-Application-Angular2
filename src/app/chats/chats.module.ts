@@ -12,6 +12,8 @@ import { ChatNavbarComponent } from './chat-navbar/chat-navbar.component';
 import { ChatDetailsNavbarComponent } from './chat-details-navbar/chat-details-navbar.component';
 import { ChatMenuComponent } from './chat-menu/chat-menu.component';
 
+import { FilterChatByNamePipe } from './shared/chat-filter.pipe';
+
 @NgModule({
   declarations: [
     ChatsComponent,
@@ -21,7 +23,8 @@ import { ChatMenuComponent } from './chat-menu/chat-menu.component';
     ChatHolderComponent,
     ChatNavbarComponent,
     ChatDetailsNavbarComponent,
-    ChatMenuComponent
+    ChatMenuComponent,
+    FilterChatByNamePipe
   ],
   imports: [
     SharedModule,

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from "./../../messages/shared/message.service";
+
 
 @Component({
   selector: 'ct-chat-details-navbar',
@@ -8,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 
 export class ChatDetailsNavbarComponent implements OnInit {
 
-  constructor() {
+  constructor(private messageService: MessageService) {
 
   }
+
+  private searchMessageValue: string = '';
+
+  onBlur(): void {
+    this.searchMessageValue = '';
+    this.messageService.setSearchMessageValue('');
+  }
+  
+  private onSearchMessageValueChange(value: string): void {
+    this.messageService.setSearchMessageValue(value);
+  } 
+
 
   ngOnInit() {
 

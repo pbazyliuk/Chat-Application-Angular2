@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { ChatService } from "app/chats/shared";
 
 @Component({
   selector: 'ct-chat-navbar',
@@ -11,11 +12,18 @@ export class ChatNavbarComponent implements OnInit {
   public isCollapsed: boolean;
   public isMenuShown: boolean;
 
+   private searchValue: string = '';
+
   @Output() notifyCollapse: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() notifyMenu: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor() {
+  constructor(private service: ChatService) {
   
+  }
+
+  onBlur(): void {
+    this.searchValue = '';
+    this.service.setSearchValue('');
   }
   
   collapse() {
@@ -25,8 +33,11 @@ export class ChatNavbarComponent implements OnInit {
 
   showMenu() {
     this.isMenuShown = !this.isMenuShown;
-    console.log(this.isMenuShown);
     this.notifyMenu.emit(this.isMenuShown);
+  }
+
+  private onSearchValueChange(value: string): void {
+    this.service.setSearchValue(value);
   }
 
   ngOnInit() {

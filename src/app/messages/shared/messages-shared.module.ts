@@ -10,10 +10,15 @@ import { MessageNewComponent } from './message-new';
 //Service
 import { MessageService } from './message.service';
 
+//Pipe
+import { FilterMessageByNamePipe } from './message-filter.pipe';
+
+
 @NgModule({
   declarations: [
     MessageListComponent,
-    MessageNewComponent
+    MessageNewComponent,
+    FilterMessageByNamePipe
   ],
   imports: [
     SharedModule

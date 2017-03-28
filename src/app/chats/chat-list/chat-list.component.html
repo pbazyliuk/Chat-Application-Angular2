@@ -1,8 +1,8 @@
 <!--<h3> Chat List </h3>-->
 <ul class="chat-list">
-  <li class="chat-list__item" *ngFor='let chat of chats | async; let i = index' 
+  <li class="chat-list__item" *ngFor='let chat of chats | async | filterChatByName: searchValue; let i = index' 
   (click)="select({id: chat.id})"
-  [class.activeLink]="(selectedId - 1) === i"
+  [class.activeLink]="selectedId == chat.id"
   >
     <div class="avatar" >
         <img class="avatar__img" src="http://placehold.it/60x60" alt="avatar-image">

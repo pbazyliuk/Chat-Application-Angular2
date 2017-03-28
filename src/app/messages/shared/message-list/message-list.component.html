@@ -2,7 +2,7 @@
 
 
 <ul class="message-list">
-    <li class="user-message" *ngFor='let message of messages | async'>
+    <li class="user-message" *ngFor='let message of messages | async | filterMessageByName: searchMessageValue;'>
         <div class="user-message-wrapper">
       
             <div class="avatar ">

@@ -6,7 +6,11 @@
     </div>
 
      <form action="" class="search-form" *ngIf="!isCollapsed">
-             <input class="search-form__input" type="text" placeholder="Search message">
+             <input class="search-form__input" type="text" placeholder="Search message" name="search-message"
+            [(ngModel)]="searchMessageValue"
+            (blur)="onBlur()"
+            (ngModelChange)="onSearchMessageValueChange($event)"
+             >
             <span class="search-form__btn-search"></span>
         </form>
 </div>
