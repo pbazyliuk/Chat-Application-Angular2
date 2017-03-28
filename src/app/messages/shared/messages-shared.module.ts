@@ -13,12 +13,15 @@ import { MessageService } from './message.service';
 //Pipe
 import { FilterMessageByNamePipe } from './message-filter.pipe';
 
+//Directive
+import { HighlightByClickDirective } from './highlight.directive';
 
 @NgModule({
   declarations: [
     MessageListComponent,
     MessageNewComponent,
-    FilterMessageByNamePipe
+    FilterMessageByNamePipe,
+    HighlightByClickDirective
   ],
   imports: [
     SharedModule
