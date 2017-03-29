@@ -2,7 +2,7 @@ import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Chat } from '../shared/chat.model';
 import { ChatService } from '../shared/chats.service';
-  import { Subscription } from "rxjs";
+import { Subscription, BehaviorSubject } from "rxjs";
 
 @Component({
   selector: 'ct-chat-list',
@@ -11,11 +11,14 @@ import { ChatService } from '../shared/chats.service';
 })
 
 export class ChatListComponent implements OnInit {
-  @Input() chats: Promise<Chat[]>
+
   @Input() isCollapsedChild:boolean;
+
   private selectedId: number;
   private searchValue: string = '';
-  private subscription: Subscription;
+
+ private subscriptions: Subscription[] = [];
+ @Input() chats: Chat[];
 
 
 
@@ -27,9 +30,10 @@ export class ChatListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-     this.subscription = this.service
+     this.subscriptions.push(this.service
       .getSearchValue()
       .subscribe(value => this.searchValue = value)
+     )
   }
 
   select(chat: Chat) {
@@ -41,7 +45,7 @@ export class ChatListComponent implements OnInit {
   }
 
   public ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.subscriptions.map(subscription => subscription.unsubscribe());
   }
 
 }

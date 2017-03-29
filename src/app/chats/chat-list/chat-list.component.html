@@ -1,6 +1,6 @@
 <!--<h3> Chat List </h3>-->
 <ul class="chat-list">
-  <li class="chat-list__item" *ngFor='let chat of chats | async | filterChatByName: searchValue; let i = index' 
+  <li class="chat-list__item" *ngFor='let chat of chats | filterChatByName: searchValue; let i = index' 
   (click)="select({id: chat.id})"
   [class.activeLink]="selectedId == chat.id"
   >

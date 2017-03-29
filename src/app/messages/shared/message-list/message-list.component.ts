@@ -18,7 +18,8 @@ import { Message } from '../message.model';
 export class MessageListComponent implements OnInit {
     chatId: number;
 
-    messages: Promise<Message[]>
+    messages: Message[];
+    subscriptions: Subscription[] = [];
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -33,17 +34,20 @@ export class MessageListComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
         this.chatId = +params['id'];
-        this.messages = this.messageService.getAll(this.chatId);
-    });
+        
+        this.subscriptions.push(this.messageService.getMessages(this.chatId).subscribe(
+         messages => this.messages = messages, err => console.log(err)
+         )
+       )
+      });
 
-
-     this.subscription = this.messageService
+     this.subscriptions.push(this.messageService
       .getSearchMessageValue()
       .subscribe(value => this.searchMessageValue = value)
-  }
+     )}
 
   public ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.subscriptions.map(subscription => subscription.unsubscribe());
   }
 
 }
