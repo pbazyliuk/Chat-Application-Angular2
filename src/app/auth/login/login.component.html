@@ -1,6 +1,6 @@
 <div class="form__wrapper">
 
-    <form #formSignIn="ngForm" novalidate class="form-sign-in" (ngSubmit)="signInSubmit(formSignIn.value)">
+    <form #formSignIn="ngForm" novalidate class="form-sign-in" (ngSubmit)="signInSubmit(formSignIn)">
         
         <h4 class="form-sign-in__header" >Sign In</h4>
         
@@ -13,7 +13,7 @@
             required
             pattern="[^@]+@[^@]+\.[a-zA-Z]{2,}" 
             [class.input-has-error]="email.invalid && email.touched"
-            [ngModel]="user.email"
+            [ngModel]="user.login"
             >
             <div *ngIf="email.invalid && email.touched"  class="text-has-error">
                 Email is required
@@ -42,9 +42,12 @@
                     <a class="social-icons-content__link" href="https://www.facebook.com">
                         <div class="social-icons-content__fb-icon"></div>
                     </a>
-                    <a class="social-icons-content__link" href="https://plus.google.com/">
+                    <!--
                         <div class="hover social-icons-content__g-icon"></div>
-                    </a>
+                    </a>-->
+                    
+                    <button id="google-custom-button" class="hover social-icons-content__g-icon">Log in with Google</button>
+
                     <a class="social-icons-content__link" href="https://twitter.com/">
                         <div class="hover social-icons-content__tw-icon"></div>
                     </a>
