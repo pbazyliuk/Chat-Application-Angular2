@@ -6,6 +6,9 @@ import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { PageNotFoundComponent }   from './not-found.component';
 
+//Service
+import { AuthGuard } from "./auth/auth.guard.service";
+
 const appRoutes: Routes = [
   {
     path: 'home',
@@ -18,7 +21,8 @@ const appRoutes: Routes = [
   },
   {
     path: 'chat',
-    loadChildren: 'app/chats/chats.module#ChatsModule'
+    loadChildren: 'app/chats/chats.module#ChatsModule',
+    canActivate: [AuthGuard]
   },
   {
     path: 'auth',

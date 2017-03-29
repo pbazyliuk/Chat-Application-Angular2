@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
     export class AuthService {
         get isLoggedIn() {
-            return localStorage.getItem('token');
+            return localStorage.getItem('token') == null ? false : true;
         };
 
         login(user) {
@@ -17,7 +17,7 @@ import { Injectable } from '@angular/core';
         };
 
         logout() {
-            localStorage.setItem('token', null);
+            localStorage.setItem('token', '');
         }
     }
 

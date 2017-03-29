@@ -24,7 +24,6 @@ export class MessageListComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private router: Router,
               private messageService: MessageService
-              
               ) {}
 
   private searchMessageValue: string = '';

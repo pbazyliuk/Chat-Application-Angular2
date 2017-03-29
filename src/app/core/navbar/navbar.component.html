@@ -9,13 +9,13 @@
             <a class="navbar__menu-link" routerLink="/home" routerLinkActive="active" >Home</a>
         </li>
         <li class="navbar__menu-item">
-            <a class="navbar__menu-link" routerLink="/chat" routerLinkActive="active">Chat</a>
+            <a class="navbar__menu-link" routerLink="/chat" routerLinkActive="active" [hidden]="!isLogged">Chat</a>
         </li>
         <li class="navbar__menu-item">
-            <a class="navbar__menu-link" routerLink="/auth/login" routerLinkActive="active">Sign In</a>
+            <a class="navbar__menu-link" routerLink="/auth/login" routerLinkActive="active" [hidden]="isLogged">Sign In</a>
         </li>
         <li class="navbar__menu-item"> 
-            <a class="navbar__menu-link" routerLink="/auth/register" routerLinkActive="active">Sign Up</a>
+            <a class="navbar__menu-link" routerLink="/auth/register" routerLinkActive="active" [hidden]="isLogged">Sign Up</a>
         </li>
     </ul>
 </nav>

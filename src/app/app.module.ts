@@ -10,6 +10,10 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home.component';
 import { PageNotFoundComponent } from './not-found.component';
 
+//Service
+import { AuthService } from './core/auth.service'
+import { AuthGuard } from "./auth/auth.guard.service";
+
 @NgModule({
 
   //Components
@@ -28,7 +32,8 @@ import { PageNotFoundComponent } from './not-found.component';
   ],
   
   //Services
-  providers: [],
+  providers: [AuthService, AuthGuard],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
