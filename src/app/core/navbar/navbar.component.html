@@ -17,5 +17,9 @@
         <li class="navbar__menu-item"> 
             <a class="navbar__menu-link" routerLink="/auth/register" routerLinkActive="active" [hidden]="isLogged">Sign Up</a>
         </li>
+
+        <li class="navbar__menu-item">
+            <a href="" class="navbar__menu-link" [hidden]="!isLogged" (click)="logoutAction()">Logout</a>
+        </li>
     </ul>
 </nav>

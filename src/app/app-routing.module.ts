@@ -8,6 +8,7 @@ import { PageNotFoundComponent }   from './not-found.component';
 
 //Service
 import { AuthGuard } from "./auth/auth.guard.service";
+import { ChatGuard } from "./chats/chat.guard.service";
 
 const appRoutes: Routes = [
   {
@@ -26,7 +27,8 @@ const appRoutes: Routes = [
   },
   {
     path: 'auth',
-    loadChildren: 'app/auth/auth.module#AuthModule'
+    loadChildren: 'app/auth/auth.module#AuthModule',
+    canActivate: [ChatGuard]
   }
   ,
   {

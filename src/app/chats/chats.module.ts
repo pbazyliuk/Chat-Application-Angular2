@@ -14,6 +14,7 @@ import { ChatMenuComponent } from './chat-menu/chat-menu.component';
 
 import { FilterChatByNamePipe } from './shared/chat-filter.pipe';
 
+
 @NgModule({
   declarations: [
     ChatsComponent,

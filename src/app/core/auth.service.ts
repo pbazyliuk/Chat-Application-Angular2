@@ -17,7 +17,7 @@ import { Injectable } from '@angular/core';
         };
 
         logout() {
-            localStorage.setItem('token', '');
+            localStorage.removeItem('token');
         }
     }
 

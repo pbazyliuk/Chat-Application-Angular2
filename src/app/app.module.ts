@@ -13,6 +13,7 @@ import { PageNotFoundComponent } from './not-found.component';
 //Service
 import { AuthService } from './core/auth.service'
 import { AuthGuard } from "./auth/auth.guard.service";
+import { ChatGuard } from "./chats/chat.guard.service";
 
 @NgModule({
 
@@ -32,7 +33,7 @@ import { AuthGuard } from "./auth/auth.guard.service";
   ],
   
   //Services
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard, ChatGuard],
 
   bootstrap: [AppComponent]
 })

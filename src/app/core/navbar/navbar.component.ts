@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'navbar',
@@ -7,7 +8,11 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
   public isLogged: boolean = localStorage.getItem('token') !== null;
+
+  constructor(private service: AuthService ) {}
   
-  
+  logoutAction() {
+    this.service.logout(); 
+  }
 
 }
