@@ -4,6 +4,7 @@ import { SharedModule }  from '../shared';
 import { AuthComponent } from './auth.component';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
+import { AltLoginComponent } from './alt-login';
 import { AuthRoutingModule} from './auth-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../core/auth.service';
@@ -14,7 +15,8 @@ import { AuthService } from '../core/auth.service';
   declarations: [
     AuthComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AltLoginComponent
   ],
   
   //Modules
