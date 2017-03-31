@@ -1,0 +1,1 @@
+export const API_URL: string = 'https://front-camp-chat.herokuapp.com/login';

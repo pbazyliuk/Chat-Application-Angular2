@@ -7,9 +7,13 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  public isLogged: boolean = localStorage.getItem('token') !== null;
+  
 
   constructor(private service: AuthService ) {}
+
+  isLogged() {
+    return this.service.isLoggedIn;
+  };
   
   logoutAction() {
     this.service.logout(); 
