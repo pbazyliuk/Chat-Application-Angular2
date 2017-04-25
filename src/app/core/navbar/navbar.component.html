@@ -22,15 +22,19 @@
             <a class="navbar__menu-link" routerLink="/auth/login" routerLinkActive="active" [hidden]="isLogged()">Login</a>
             <a class="navbar__menu-link" routerLink="/auth/register" routerLinkActive="active" [hidden]="isLogged()">Register</a>
         </ng-container>
+        <li class="navbar__menu-item">    
+             <a class="navbar__menu-link">
+                {{username}}
+            </a>
+        </li>
 
         <li class="navbar__menu-item">
+
             <a href="" class="navbar__menu-link" [hidden]="!isLogged()" (click)="logoutAction()">Logout</a>
         </li>
     </ul>
 
-    {{ isLogged() }}
 </nav>
-
 
 <div class="user-profile" *ngIf="isLoggedIn">
     <a class="user-profile-link">
